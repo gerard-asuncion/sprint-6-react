@@ -1,0 +1,18 @@
+[
+    { 
+        "id": 1, 
+        "section": "Seo",
+        "price": 300,
+        "isWeb": false    
+    }, {
+        "id": 2,
+        "section": "Ads",
+        "price": 400,
+        "isWeb": false  
+    }, {
+        "id": 3,
+        "section": "Web",
+        "price": 500,
+        "isWeb": true
+    }
+]
