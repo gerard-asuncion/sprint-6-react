@@ -1,19 +1,22 @@
 [
     { 
         "id": 1, 
-        "section": "Seo",
+        "section": "SEO",
+        "description": "Optimització per a motors de cerca",
         "price": 300,
         "isChecked": false,
         "isWeb": false    
     }, {
         "id": 2,
         "section": "Ads",
+        "description": "Implementació de publicitat",
         "price": 400,
         "isChecked": false,
         "isWeb": false  
     }, {
         "id": 3,
         "section": "Web",
+        "description": "Programació d'una web responsive completa",
         "price": 500,
         "isChecked": false,
         "isWeb": true

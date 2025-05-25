@@ -1,6 +1,7 @@
 type Section = {
     id: number,
     section: string,
+    description: string,
     price: number,
     isChecked: boolean,
     isWeb: boolean
@@ -16,7 +17,7 @@ const Checkbox = ({currentSection}: Props) => {
     items-center m-auto mt-5">
         <article>
             <h2>{currentSection.section}</h2>
-            <p>Programació d'una web responsive completa</p>
+            <p>{currentSection.description}</p>
         </article>
         <article>
             {currentSection.price}€
