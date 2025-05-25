@@ -13,16 +13,16 @@ type Props = {
 
 const Checkbox = ({currentSection}: Props) => {
   return (
-    <section className="w-90/100 h-20 rounded-lg flex justify-center
-    items-center m-auto mt-5">
-        <article>
-            <h2>{currentSection.section}</h2>
-            <p>{currentSection.description}</p>
+    <section className={`w-90/100 h-30 p-4 rounded-lg flex justify-between
+    items-center m-auto mt-5 shadow-md ${currentSection.isChecked ? 'border-indigo-500 border-2' : ''}`}>
+        <article className="w-50/100">
+            <h2 className="text-lg font-bold">{currentSection.section}</h2>
+            <p className="text-neutral-600">{currentSection.description}</p>
         </article>
-        <article>
+        <article className="text-xl font-bold w-30/100">
             {currentSection.price}€
         </article>
-        <article>
+        <article className="w-20/100">
             <input type="checkbox" name="add" id="add" />
             <label htmlFor="add">Afegir</label>
         </article>
