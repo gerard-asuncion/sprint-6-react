@@ -8,7 +8,7 @@ const useExtras = (checked: boolean) => {
 
     const { sections } = useContext(SectionsContext)
 
-    const { totalPrice, setTotalPrice } = useContext(PriceContext)
+    const { setTotalPrice } = useContext(PriceContext)
 
     const previousExtrasRef = useRef<number>(0)
 
