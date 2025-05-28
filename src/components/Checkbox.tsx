@@ -4,6 +4,7 @@ import { SectionsContext } from "../context/SectionsContext"
 import { useContext } from "react"
 import useCheck from "../hooks/useCheck"
 import usePrice from "../hooks/usePrice"
+import { styleCheck, expandWeb, showAndHideWebExtras } from "../utils/utils"
 
 const Checkbox = ({id}: CheckboxProps) => {
 
@@ -17,8 +18,7 @@ const Checkbox = ({id}: CheckboxProps) => {
 
   return (
     <section className={`flex flex-col items-around w-90/100 p-4 rounded-lg m-auto mt-5 shadow-md 
-    ${currentSection.isChecked ? 'border-indigo-500 border-2' : ''}
-    ${currentSection.isWeb && currentSection.isChecked ? 'justify-around h-50' : 'justify-center h-30'}`}>
+    ${styleCheck(currentSection)} ${expandWeb(currentSection)}`}>
         <section className="flex justify-between items-center">
             <article className="w-60/100">
                 <h2 className="text-lg font-bold">{currentSection.section}</h2>
@@ -39,7 +39,7 @@ const Checkbox = ({id}: CheckboxProps) => {
                 <label htmlFor={`${currentSection.id}`}>Afegir</label>
             </article>
         </section>
-        <section className={currentSection.isWeb && currentSection.isChecked ? '' : 'hidden'}>
+        <section className={showAndHideWebExtras(currentSection)}>
             <WebExtras checked={currentSection.isChecked}>Nombre de pàgines</WebExtras>
             <WebExtras checked={currentSection.isChecked}>Nombre de llenguatges</WebExtras>
         </section>
