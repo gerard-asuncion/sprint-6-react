@@ -1,6 +1,7 @@
 import Header from "./Header"
 import Checkbox from "./Checkbox"
 import Budget from "./Budget"
+import BudgetForm from "./BudgetForm"
 import PriceProvider from "../context/PriceProvider"
 import SectionsProvider from "../context/SectionsProvider";
 import useIds from "../hooks/useIds";
@@ -19,6 +20,7 @@ const MainApp = () => {
         id={id}
         ></Checkbox>)}
         <Budget></Budget>
+        <BudgetForm></BudgetForm>
       </PriceProvider>
     </SectionsProvider>
   )
