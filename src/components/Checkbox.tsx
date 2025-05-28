@@ -1,10 +1,22 @@
 import WebExtras from "./WebExtras"
-import type { CheckboxProps } from "../types/types"
+import type { Section, CheckboxProps } from "../types/types"
+import { SectionsContext } from "../context/SectionsContext"
+import { useContext } from "react"
+import useCheck from "../hooks/useCheck"
+import usePrice from "../hooks/usePrice"
 
-const Checkbox = ({currentSection, active, onToggle}: CheckboxProps) => {
-  
+const Checkbox = ({id}: CheckboxProps) => {
+
+    const { sections } = useContext(SectionsContext)
+
+    const { handleChange } = useCheck()
+
+    const { setPrice } = usePrice()
+
+    const currentSection = sections.find(section => section.id === id) as Section
+
   return (
-    <section className={`flex flex-col w-90/100 p-4 rounded-lg m-auto mt-5 shadow-md 
+    <section className={`flex flex-col items-around w-90/100 p-4 rounded-lg m-auto mt-5 shadow-md 
     ${currentSection.isChecked ? 'border-indigo-500 border-2' : ''}
     ${currentSection.isWeb && currentSection.isChecked ? 'justify-around h-50' : 'justify-center h-30'}`}>
         <section className="flex justify-between items-center">
@@ -16,13 +28,20 @@ const Checkbox = ({currentSection, active, onToggle}: CheckboxProps) => {
                 {currentSection.price}€
             </article>
             <article className="w-20/100 flex justify-around">
-                <input type="checkbox" name="add" id={`${currentSection.id}`} checked={active} onChange={onToggle} />
+                <input type="checkbox" 
+                    name="add" 
+                    id={`${currentSection.id}`} 
+                    checked={currentSection.isChecked} 
+                    onChange={(e) => {
+                        handleChange(e.target.checked, id);
+                        setPrice(id)
+                    }} />
                 <label htmlFor={`${currentSection.id}`}>Afegir</label>
             </article>
         </section>
         <section className={currentSection.isWeb && currentSection.isChecked ? '' : 'hidden'}>
-            <WebExtras>Nombre de pàgines</WebExtras>
-            <WebExtras>Nombre de llenguatges</WebExtras>
+            <WebExtras checked={currentSection.isChecked}>Nombre de pàgines</WebExtras>
+            <WebExtras checked={currentSection.isChecked}>Nombre de llenguatges</WebExtras>
         </section>
     </section>
   )

@@ -1,20 +1,22 @@
-import { useState } from "react";
-import sectionsJson from "../data/sections.json" assert { type: "json" } 
-import type { Section } from "../types/types"
+import { useContext } from "react"
+import { SectionsContext } from "../context/SectionsContext"
 
-export const useCheck = () => {
+const useCheck = () => {
 
-    const [sections, setSections] = useState<Section[]>(() => JSON.parse(JSON.stringify(sectionsJson)))
+    const { setSections } = useContext(SectionsContext)
 
     const handleChange = (checked: boolean, id: number): void => {
         
-        setSections(sections.map(section => 
+        setSections(prev => prev.map(section => 
             section.id === id
             ? { ...section, isChecked: checked }
             : {...section}          
         ))
+
     }
 
-    return { sections, handleChange }
+    return { handleChange }
 }
+
+export default useCheck
 

@@ -1,3 +1,5 @@
+import type { ReactNode } from "react"
+
 export type Section = {
     id: number,
     section: string,
@@ -8,7 +10,24 @@ export type Section = {
 }
 
 export type CheckboxProps = {
-    currentSection: Section,
-    active: boolean,
-    onToggle: (e: React.ChangeEvent<HTMLInputElement>) => void
+    id: number
+}
+
+export type WebExtrasProps = {
+    children: string,
+    checked: boolean
+}
+
+export type PriceContextType = {
+    totalPrice: number,
+    setTotalPrice: React.Dispatch<React.SetStateAction<number>>
+}
+
+export type ProviderProps = {
+    children: ReactNode
+}
+
+export type SectionsContextType = {
+    sections: Section[],
+    setSections: React.Dispatch<React.SetStateAction<Section[]>>
 }

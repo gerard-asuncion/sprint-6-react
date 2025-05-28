@@ -5,7 +5,7 @@
         "description": "Optimització per a motors de cerca",
         "price": 300,
         "isWeb": false,
-         "isChecked": false    
+        "isChecked": false    
     }, {
         "id": 2,
         "section": "Ads",
