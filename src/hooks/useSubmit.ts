@@ -5,7 +5,7 @@ import { BudgetsContext } from "../context/BudgetsContext"
 
 const useSubmit = () => {
 
-    const { budgets, setBudgets } = useContext(BudgetsContext)
+    const { setBudgets } = useContext(BudgetsContext)
     const { totalPrice } = useContext(PriceContext)
 
     const [name, setName] = useState<string>("")
