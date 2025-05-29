@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import { Budget } from "../classes/Budget"
 
 export type Section = {
     id: number,
@@ -30,4 +31,9 @@ export type ProviderProps = {
 export type SectionsContextType = {
     sections: Section[],
     setSections: React.Dispatch<React.SetStateAction<Section[]>>
+}
+
+export type BudgetsContextType = {
+    budgets: Budget[],
+    setBudgets: React.Dispatch<React.SetStateAction<Budget[]>>
 }
