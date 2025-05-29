@@ -16,6 +16,8 @@ const useSubmit = () => {
 
         e.preventDefault()
 
+        if(name === "") return alert("No name")
+
         const newBudget: Budget = new Budget(name, phone, email, totalPrice)
 
         setBudgets(prevArr => [...prevArr, newBudget])    

@@ -7,10 +7,11 @@ const BudgetsProvider = ({children}: ProviderProps) => {
 
     const [budgets, setBudgets] = useState<Budget[]>(() => {
       const saved = localStorage.getItem('arrBudgets');
+      if(saved){
+        const parsed = JSON.parse(saved);
+        return parsed.map((obj: any) => Budget.fromJSON(obj));
+      }   
       if (!saved) return [];
-
-      const parsed = JSON.parse(saved);
-      return parsed.map((obj: any) => Budget.fromJSON(obj));
     })
 
     useEffect(() => {
