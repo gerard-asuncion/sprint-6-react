@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom"
 import MainApp from "./pages/MainApp";
-import Welcome from "./pages/Welcome";
+import WelcomePage from "./pages/WelcomePage";
 
 function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Welcome />} />
+      <Route path="/" element={<WelcomePage />} />
       <Route path="/app" element={<MainApp />} />
     </Routes>
   )
