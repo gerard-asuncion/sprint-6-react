@@ -8,21 +8,31 @@ export const SectionsContext = createContext<SectionsContextType>({
         "description": "Optimització per a motors de cerca",
         "price": 300,
         "isWeb": false,
-        "isChecked": false    
+        "isChecked": false,
+        "pages": 0,
+        "languages": 0   
     }, {
         "id": 2,
         "section": "Ads",
         "description": "Implementació de publicitat",
         "price": 400,
         "isWeb": false,
-        "isChecked": false 
+        "isChecked": false,
+        "pages": 0,
+        "languages": 0
     }, {
         "id": 3,
         "section": "Web",
         "description": "Programació d'una web responsive completa",
         "price": 500,
         "isWeb": true,
-        "isChecked": false
+        "isChecked": false,
+        "pages": 1,
+        "languages": 1
     }],
-    setSections: () => {}
+    setSections: () => {},
+    totalPages: 1,
+    setTotalPages: () => {},
+    totalLanguages: 1,
+    setTotalLanguages: () => {}
 });

@@ -2,35 +2,53 @@ import { useContext, useState, useRef, useEffect } from "react"
 import { SectionsContext } from "../context/SectionsContext"
 import { PriceContext } from "../context/PriceContext"
 
-const useExtras = (checked: boolean) => {
+const useExtras = (checked: boolean, id: number, type: string) => {
 
-    const [totalExtras, setTotalExtras] = useState<number>(0)
-
-    const { sections } = useContext(SectionsContext)
-
+    const { sections, setSections } = useContext(SectionsContext)
     const { setTotalPrice } = useContext(PriceContext)
+  
+    const [totalExtras, setTotalExtras] = useState<number>(1)
+    const previousExtrasRef = useRef<number>(totalExtras)
 
-    const previousExtrasRef = useRef<number>(0)
+    const checkedWebSection: boolean = sections.some(section => section.isWeb && section.isChecked)
 
     useEffect(() => {
-        if(checked){
-            const previous: number = previousExtrasRef.current
-            const difference: number = totalExtras - previous
 
-            if(difference !== 0){
-                setTotalPrice((prev: number) => prev + difference * 30)
-                previousExtrasRef.current = totalExtras
-            }
-        }else{
-            setTotalPrice(sections.filter(section => section.isChecked === true).map(section => section.price).reduce((acc, cur) => acc + cur, 0))
-            setTotalExtras(0)
-            previousExtrasRef.current = 0
-        }
+        const previous: number = previousExtrasRef.current
+        const difference: number = totalExtras - previous
+
+        if(checkedWebSection){
+
+            setTotalPrice((prev: number) => prev + difference * 30)
+            previousExtrasRef.current = totalExtras
+
+        } else {
+
+            const activeSectionsPrice: number = sections.filter(section => section.isChecked === true)
+                                                .map(section => section.price)
+                                                .reduce((acc, cur) => acc + cur, 0)
+       
+            setTotalPrice(activeSectionsPrice) 
+            setTotalExtras(1)
+            previousExtrasRef.current = 1
         
-    }, [totalExtras, checked])
+        }
+
+        setSections(prev => prev.map(section => {
+            if(section.id === id && section.isWeb && checked){
+                if(type === "pages"){
+                    return {...section, pages: totalExtras}
+                }else if(type === "languages"){
+                    return {...section, languages: totalExtras}
+                }
+            }
+            return {...section}
+        })) 
+        
+    }, [totalExtras, checkedWebSection])
 
     const sum = (): void => setTotalExtras(prev => prev + 1)
-    const sub = (): void => setTotalExtras(prev => prev > 0 ? prev - 1 : 0)
+    const sub = (): void => setTotalExtras(prev => prev > 1 ? prev - 1 : 1)
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const value = parseInt(e.target.value, 10);

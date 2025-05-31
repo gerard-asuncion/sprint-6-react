@@ -1,9 +1,9 @@
 import useExtras from "../../hooks/useExtras"
 import type { WebExtrasProps } from "../../types/types"
 
-const WebExtras = ({children, checked}: WebExtrasProps) => {
+const WebExtras = ({children, checked, id, type}: WebExtrasProps) => {
 
-  const { totalExtras, sum, sub, handleInputChange } = useExtras(checked)
+  const { totalExtras, sum, sub, handleInputChange } = useExtras(checked, id, type)
 
   return (
     <article className="flex justify-end text-right p-1 gap-1">

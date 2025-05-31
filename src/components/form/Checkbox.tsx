@@ -34,14 +34,24 @@ const Checkbox = ({id}: CheckboxProps) => {
                     checked={currentSection.isChecked} 
                     onChange={(e) => {
                         handleChange(e.target.checked, id);
-                        setPrice(id)
+                        setPrice(e.target.checked, id)
                     }} />
                 <label htmlFor={`${currentSection.id}`}>Afegir</label>
             </article>
         </section>
         <section className={showAndHideWebExtras(currentSection)}>
-            <WebExtras checked={currentSection.isChecked}>Nombre de pàgines</WebExtras>
-            <WebExtras checked={currentSection.isChecked}>Nombre de llenguatges</WebExtras>
+            <WebExtras 
+                checked={currentSection.isChecked} 
+                id={currentSection.id}
+                type="pages"
+                >Nombre de pàgines
+            </WebExtras>
+            <WebExtras 
+                checked={currentSection.isChecked} 
+                id={currentSection.id}
+                type="languages">
+                Nombre de llenguatges
+            </WebExtras>
         </section>
     </section>
   )

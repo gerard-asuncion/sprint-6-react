@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { SectionsContext } from "../context/SectionsContext";
 import { PriceContext } from "../context/PriceContext";
+import type { Section } from "../types/types";
 
 const usePrice = () => {
 
@@ -8,12 +9,15 @@ const usePrice = () => {
 
     const { sections } = useContext(SectionsContext)
 
-    const setPrice = (id: number): void => {
+    const setPrice = (checked: boolean, id: number): void => {
 
-        const currentSection = sections.find(section => section.id === id)!
+        const currentSection: Section = sections.find(section => section.id === id)!
 
-        setTotalPrice(prev => prev + currentSection.price)
-
+        if(checked){
+            setTotalPrice(prev => prev + currentSection.price)
+        } else {
+            setTotalPrice(prev => prev - currentSection.price)
+        }
     }
 
     return { setPrice }

@@ -9,7 +9,7 @@ const BudgetsProvider = ({children}: ProviderProps) => {
       const saved = localStorage.getItem('arrBudgets');
       if(saved){
         const parsed = JSON.parse(saved);
-        return parsed.map((obj: any) => Budget.fromJSON(obj));
+        return parsed.map((budget: any) => Budget.fromJSON(budget));
       }   
       if (!saved) return [];
     })

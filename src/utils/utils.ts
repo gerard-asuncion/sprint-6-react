@@ -1,4 +1,5 @@
 import type { Section } from "../types/types"
+import { Budget } from "../classes/Budget"
 
 export const styleCheck = (currentSection: Section): string =>
     currentSection.isChecked ? 'border-indigo-500 border-2' : ''
@@ -8,3 +9,20 @@ export const expandWeb = (currentSection: Section): string =>
 
 export const showAndHideWebExtras = (currentSection: Section): string => 
     currentSection.isWeb && currentSection.isChecked ? '' : 'hidden'
+
+export const displayCustomBudgetsSection = (budgets: Budget[]): string =>
+    budgets.length !== 0 ? '' : 'hidden'
+
+export const singPluralPagLang = (type: string, num: number): string => {
+    let word = ""
+    if(type === "pages"){
+        num === 1
+        ? word = "pàgina"
+        : word = "pàgines"
+    }else if(type === "languages"){
+        num === 1
+        ? word = "llenguatge"
+        : word = "llenguatges"
+    }
+    return word
+}

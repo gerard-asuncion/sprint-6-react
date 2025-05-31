@@ -7,7 +7,9 @@ export type Section = {
     description: string,
     price: number,
     isChecked: boolean,
-    isWeb: boolean
+    isWeb: boolean,
+    pages: number | null,
+    languages: number | null
 }
 
 export type CheckboxProps = {
@@ -16,7 +18,9 @@ export type CheckboxProps = {
 
 export type WebExtrasProps = {
     children: string,
-    checked: boolean
+    checked: boolean,
+    id: number,
+    type: string
 }
 
 export type PriceContextType = {
@@ -30,10 +34,18 @@ export type ProviderProps = {
 
 export type SectionsContextType = {
     sections: Section[],
-    setSections: React.Dispatch<React.SetStateAction<Section[]>>
+    setSections: React.Dispatch<React.SetStateAction<Section[]>>,
+    totalPages: number,
+    setTotalPages: React.Dispatch<React.SetStateAction<number>>,
+    totalLanguages: number,
+    setTotalLanguages: React.Dispatch<React.SetStateAction<number>>
 }
 
 export type BudgetsContextType = {
     budgets: Budget[],
     setBudgets: React.Dispatch<React.SetStateAction<Budget[]>>
+}
+
+export type BudgetProps = {
+    budget: Budget
 }
