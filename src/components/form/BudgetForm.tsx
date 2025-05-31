@@ -1,6 +1,6 @@
-import useSubmit from "../hooks/useSubmit"
+import useSubmit from "../../hooks/useSubmit"
 import { useContext } from "react"
-import { BudgetsContext } from "../context/BudgetsContext"
+import { BudgetsContext } from "../../context/BudgetsContext"
 
 const BudgetForm = () => {
 

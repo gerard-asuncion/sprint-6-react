@@ -1,5 +1,5 @@
-import useExtras from "../hooks/useExtras"
-import type { WebExtrasProps } from "../types/types"
+import useExtras from "../../hooks/useExtras"
+import type { WebExtrasProps } from "../../types/types"
 
 const WebExtras = ({children, checked}: WebExtrasProps) => {
 

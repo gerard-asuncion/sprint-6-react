@@ -1,10 +1,10 @@
 import WebExtras from "./WebExtras"
-import type { Section, CheckboxProps } from "../types/types"
-import { SectionsContext } from "../context/SectionsContext"
+import type { Section, CheckboxProps } from "../../types/types"
+import { SectionsContext } from "../../context/SectionsContext"
 import { useContext } from "react"
-import useCheck from "../hooks/useCheck"
-import usePrice from "../hooks/usePrice"
-import { styleCheck, expandWeb, showAndHideWebExtras } from "../utils/utils"
+import useCheck from "../../hooks/useCheck"
+import usePrice from "../../hooks/usePrice"
+import { styleCheck, expandWeb, showAndHideWebExtras } from "../../utils/utils"
 
 const Checkbox = ({id}: CheckboxProps) => {
 
