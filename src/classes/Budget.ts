@@ -1,10 +1,10 @@
 export class Budget {
 
-    public _name: string;
-    public _phone: number;
-    public _email: string;
-    public _budget: number;
-    public _date: string;
+    public name: string;
+    public phone: number;
+    public email: string;
+    public budget: number;
+    public date: string;
     public id: number;
 
     static fromJSON(obj: any): Budget {
@@ -16,22 +16,22 @@ export class Budget {
     static counter = 0
 
     constructor(name: string, phone: number, email: string, totalBudget: number){
-        this._name = name,
-        this._phone = phone,
-        this._email = email,
-        this._budget = totalBudget,
-        this._date = Budget.date
+        this.name = name,
+        this.phone = phone,
+        this.email = email,
+        this.budget = totalBudget,
+        this.date = Budget.date
         Budget.counter++
         this.id = Budget.counter
     }
 
     toJSON() {
         return {
-            name: this._name,
-            phone: this._phone,
-            email: this._email,
-            budget: this._budget,
-            date: this._date,
+            name: this.name,
+            phone: this.phone,
+            email: this.email,
+            budget: this.budget,
+            date: this.date,
             id: this.id
         }
     }
