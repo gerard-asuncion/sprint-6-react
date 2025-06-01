@@ -44,3 +44,37 @@ export const safetyCustomBudgetsDisplay = (budgets: Budget[]): boolean => {
 
 export const displaySearch = (search: string): boolean => 
     search != "" ? true : false
+
+export const sortBudgets = (budgets: Budget[], value: string) => {
+    
+    const parseValue: number = parseInt(value)
+    let sortResult: Budget[] = []
+    
+    switch(parseValue){
+        case 1:
+            sortResult = budgets.toSorted((a, b) => a.date.getTime() - b.date.getTime())
+            break
+        case 2:
+            sortResult = budgets.toSorted((a, b) => {
+                if(a.totalBudget === b.totalBudget && a.name === b.name){
+                    return a.date.getTime() - b.date.getTime()
+                }else if(a.totalBudget === b.totalBudget){
+                    return a.name.localeCompare(b.name)
+                }else{
+                    return a.totalBudget - b.totalBudget
+                }   
+            })
+            break
+        case 3:
+            sortResult = budgets.toSorted((a, b) => {
+                if(a.name === b.name){
+                    return a.date.getTime() - b.date.getTime()
+                } else {
+                    return a.name.localeCompare(b.name)
+                }
+            })
+            break
+    }
+
+    return sortResult
+}

@@ -7,14 +7,14 @@ export class Budget {
     #services: string[];
     #pages: number | null;
     #languages: number | null;
-    #date: string;
+    #date: Date;
     #id: number;
 
     static fromJSON(budget: any): Budget {
         return new Budget(budget.name, budget.phone, budget.email, budget.totalBudget, budget.services, budget.pages, budget.languages);
     }
 
-    static date: string = new Date().toISOString();
+    static date: Date = new Date();
 
     static counter: number = 0
 
