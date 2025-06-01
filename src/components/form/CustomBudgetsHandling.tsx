@@ -1,7 +1,9 @@
 import { BudgetsContext } from "../../context/BudgetsContext"
 import { useContext } from "react"
 import useSearch from "../../hooks/useSearch"
-import CustomBudgetDisplay from "../ui/CustomBudgetDisplay"
+import { safetyCustomBudgetsDisplay, displaySearch } from "../../utils/utils"
+import CustomBudgetsSearch from "./CustomBudgetsSearch"
+import CustomBudgetsSort from "./CustomBudgetsSort"
 
 const CustomBudgetsHandling = () => {
 
@@ -26,12 +28,13 @@ const CustomBudgetsHandling = () => {
           <option value="3">Nom</option>
         </select>
       </nav>
-      {budgets.map(budget => 
-        <CustomBudgetDisplay
-          key={budget.id}
-          budget={budget}>
-        </CustomBudgetDisplay>
-      )}
+      {safetyCustomBudgetsDisplay(budgets)
+      ? displaySearch(search)
+        ? <CustomBudgetsSearch search={search}></CustomBudgetsSearch>
+        : <CustomBudgetsSort></CustomBudgetsSort>
+      : <div>Sorry! Custom budgets data saved in local storage is corrupted, please make a reset and start again.</div>
+      }
+     
       
     </>
   )
