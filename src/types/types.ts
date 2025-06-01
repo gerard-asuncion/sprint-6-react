@@ -49,3 +49,7 @@ export type BudgetProps = {
 export type CustomBudgetSearchProps = {
     search: string
 }
+
+export type CustomBudgetSortProps = {
+    value: string
+}
