@@ -30,9 +30,5 @@ export const SectionsContext = createContext<SectionsContextType>({
         "pages": 1,
         "languages": 1
     }],
-    setSections: () => {},
-    totalPages: 1,
-    setTotalPages: () => {},
-    totalLanguages: 1,
-    setTotalLanguages: () => {}
+    setSections: () => {}
 });

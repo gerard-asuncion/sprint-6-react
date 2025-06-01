@@ -7,11 +7,8 @@ const SectionsProvider = ({children}: ProviderProps) => {
 
     const [sections, setSections] = useState<Section[]>(() => JSON.parse(JSON.stringify(sectionsJson)))
 
-    const [totalPages, setTotalPages] = useState<number>(1)
-    const [totalLanguages, setTotalLanguages] = useState<number>(1)
-
   return (
-    <SectionsContext.Provider value={{sections, setSections, totalPages, setTotalPages, totalLanguages, setTotalLanguages}}>
+    <SectionsContext.Provider value={{sections, setSections}}>
       {children}
     </SectionsContext.Provider>
   )

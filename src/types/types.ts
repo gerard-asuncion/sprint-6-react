@@ -34,11 +34,7 @@ export type ProviderProps = {
 
 export type SectionsContextType = {
     sections: Section[],
-    setSections: React.Dispatch<React.SetStateAction<Section[]>>,
-    totalPages: number,
-    setTotalPages: React.Dispatch<React.SetStateAction<number>>,
-    totalLanguages: number,
-    setTotalLanguages: React.Dispatch<React.SetStateAction<number>>
+    setSections: React.Dispatch<React.SetStateAction<Section[]>>
 }
 
 export type BudgetsContextType = {
