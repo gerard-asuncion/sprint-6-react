@@ -8,14 +8,17 @@ const CustomBudgetsSearch = ({search}: CustomBudgetSearchProps) => {
     const { instantSearch } = useSearch()
     const foundBudgets: Budget[] = instantSearch(search)
 
+    const nothingFound = () => <div>No s'ha trobat cap pressupost amb aquest nom.</div>
+
   return (
     <>
-    <div>{search}</div>
-        {foundBudgets.map(budget => 
+        {foundBudgets.length > 0
+        ? foundBudgets.map(budget => 
             <CustomBudgetDisplay
                 key={budget.id}
                 budget={budget}>
-            </CustomBudgetDisplay>)}
+            </CustomBudgetDisplay>)
+        : nothingFound()}
     </>
   )
 }
