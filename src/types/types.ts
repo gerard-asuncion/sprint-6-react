@@ -45,3 +45,7 @@ export type BudgetsContextType = {
 export type BudgetProps = {
     budget: Budget
 }
+
+export type CustomBudgetSearchProps = {
+    search: string
+}

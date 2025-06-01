@@ -26,3 +26,21 @@ export const singPluralPagLang = (type: string, num: number): string => {
     }
     return word
 }
+
+export const safetyCustomBudgetsDisplay = (budgets: Budget[]): boolean => {
+    if(budgets){
+        const includesLangAndPag: boolean = budgets.filter(budget => budget.services.includes("Web")).some(budget => budget.pages && budget.languages)
+        const isUndefined: boolean = budgets.some(budget => !(budget.services && includesLangAndPag))
+
+        if(isUndefined){
+            return false
+        } else {
+            return true
+        }
+    } else {
+        return false
+    }
+}
+
+export const displaySearch = (search: string): boolean => 
+    search != "" ? true : false
