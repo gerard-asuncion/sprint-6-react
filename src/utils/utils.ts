@@ -45,7 +45,7 @@ export const safetyCustomBudgetsDisplay = (budgets: Budget[]): boolean => {
 export const displaySearch = (search: string): boolean => 
     search != "" ? true : false
 
-export const sortBudgets = (budgets: Budget[], value: string) => {
+export const sortBudgets = (budgets: Budget[], value: string): Budget[] => {
     
     const parseValue: number = parseInt(value)
     let sortResult: Budget[] = []
