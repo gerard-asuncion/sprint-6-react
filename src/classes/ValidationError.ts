@@ -1,10 +1,8 @@
-import type { ErrorsType } from "../types/types"
-
 export class ValidationError extends Error {
-    errors: ErrorsType[]
-    constructor(message: string, errors: ErrorsType[]){
+    #errors: string[];
+    constructor( message: string, errors: string[]){
         super(message)
-        this.name = "ValidationError"
-        this.errors = errors
+        this.#errors = errors
     }
-}
+    get errors() { return this.#errors }
+} 
