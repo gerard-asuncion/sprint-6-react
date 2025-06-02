@@ -62,6 +62,7 @@ const useSubmit = () => {
 
     const resetBudgets = () => {
 
+        setErrors([])
         setBudgets([])
         localStorage.removeItem("arrBudgets")
 
