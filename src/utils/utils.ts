@@ -11,7 +11,7 @@ export const showAndHideWebExtras = (currentSection: Section): string =>
     currentSection.isWeb && currentSection.isChecked ? '' : 'hidden'
 
 export const displayCustomBudgetsSection = (budgets: Budget[]): string =>
-    budgets.length !== 0 ? '' : 'hidden'
+    budgets.length > 0 ? '' : 'hidden'
 
 export const singPluralPagLang = (type: string, num: number): string => {
     let word = ""
@@ -77,4 +77,14 @@ export const sortBudgets = (budgets: Budget[], value: string): Budget[] => {
     }
 
     return sortResult
+}
+
+export const validationErrorMessage = (errors: string[]): string => {
+    let message = ""
+    if(errors.length === 1){
+        message = "Error de validació:"
+    }else if(errors.length > 1){
+        message = "Errors de validació:"
+    }
+    return message
 }

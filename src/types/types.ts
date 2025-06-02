@@ -53,3 +53,8 @@ export type CustomBudgetSearchProps = {
 export type CustomBudgetSortProps = {
     value: string
 }
+
+export type ValidationContextType = {
+    errors: string[],
+    setErrors: React.Dispatch<React.SetStateAction<string[]>>
+}
