@@ -15,9 +15,7 @@ const InfoModal = ({open, setOpen, onClose, children}: ModalProps) => {
                 flex flex-col justify-center items-center rounded-xl shadow w-90/100 bg-white py-9 gap-1
                 ${setModalVisibility(open)}`}>
                 <div className="mx-auto my-4 w-70/100 text-center">
-                    <p className="">
                     {children}
-                    </p>
                 </div>
                 <button
                     className="text-white bg-gray-500 border-2 border-gray-500 rounded-md w-fit p-1"

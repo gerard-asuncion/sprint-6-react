@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const useModalInfo = () => {
+const useModal = () => {
 
     const [open, setOpen] = useState(false)
 
@@ -8,4 +8,4 @@ const useModalInfo = () => {
 
 }
 
-export default useModalInfo
+export default useModal

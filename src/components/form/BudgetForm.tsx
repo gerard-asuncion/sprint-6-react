@@ -8,7 +8,7 @@ import useModal from "../../hooks/useModal"
 const BudgetForm = () => {
 
   const { errors } = useContext(ValidationContext)
-  const { name, setName, phone, setPhone, email, setEmail, handleSubmit, resetBudgets } = useSubmit()
+  const { name, setName, phone, setPhone, email, setEmail, handleSubmit } = useSubmit()
   const { open, setOpen } = useModal()
 
   return (
