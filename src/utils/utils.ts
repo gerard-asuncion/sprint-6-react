@@ -1,6 +1,5 @@
 import type { Section, ErrorType } from "../types/types"
 import { Budget } from "../classes/Budget"
-import type { ErrorResponse } from "react-router-dom"
 
 export const styleCheck = (currentSection: Section): string =>
     currentSection.isChecked ? 'border-indigo-500 border-2' : ''
@@ -56,6 +55,9 @@ export const sortBudgets = (budgets: Budget[], value: string): Budget[] => {
             sortResult = budgets.toSorted((a, b) => a.date.getTime() - b.date.getTime())
             break
         case 2:
+            sortResult = budgets.toSorted((a, b) => a.date.getTime() - b.date.getTime()).toReversed()       
+            break
+        case 3:
             sortResult = budgets.toSorted((a, b) => {
                 if(a.totalBudget === b.totalBudget && a.name === b.name){
                     return a.date.getTime() - b.date.getTime()
@@ -64,9 +66,20 @@ export const sortBudgets = (budgets: Budget[], value: string): Budget[] => {
                 }else{
                     return a.totalBudget - b.totalBudget
                 }   
-            })
+            })            
             break
-        case 3:
+        case 4:
+            sortResult = budgets.toSorted((a, b) => {
+                if(a.totalBudget === b.totalBudget && a.name === b.name){
+                    return a.date.getTime() - b.date.getTime()
+                }else if(a.totalBudget === b.totalBudget){
+                    return a.name.localeCompare(b.name)
+                }else{
+                    return b.totalBudget - a.totalBudget
+                }   
+            })       
+            break
+        case 5:
             sortResult = budgets.toSorted((a, b) => {
                 if(a.name === b.name){
                     return a.date.getTime() - b.date.getTime()

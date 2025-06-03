@@ -12,6 +12,7 @@ const CustomBudgetsHandling = () => {
 
   const [sortValue, setSortValue] = useState("1")
   const handleValueChange = (e: React.ChangeEvent<HTMLSelectElement>) => setSortValue(e.target.value)
+  
   return (
     <>
       <h2 className="text-lg font-bold">Pressupostos en curs:</h2>
@@ -19,15 +20,18 @@ const CustomBudgetsHandling = () => {
         <form className="flex border-2 border-gray-500 rounded-md">
           <input 
             type="text" 
-            name="search" 
+            name="search"
+            placeholder="Cercar"
             className="focus:outline-none"
             onChange={(e) => setSearch(e.target.value)} />
           <img src="/search.svg" alt="search" className="size-5" />
         </form>
         <select name="sort" id="sort" onChange={handleValueChange} value={sortValue}>
-          <option value="1">Data</option>
-          <option value="2">Import</option>
-          <option value="3">Nom</option>
+          <option value="1">Data (més recents)</option>
+          <option value="2">Data (més antics)</option>
+          <option value="3">Import (més barats)</option>
+          <option value="4">Import (més cars)</option>
+          <option value="5">Nom</option>
         </select>
       </nav>
       {safetyCustomBudgetsDisplay(budgets)
