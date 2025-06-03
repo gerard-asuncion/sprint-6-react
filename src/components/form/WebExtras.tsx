@@ -1,5 +1,5 @@
 import useExtras from "../../hooks/useExtras"
-import useModalInfo from "../../hooks/useModalInfo"
+import useModal from "../../hooks/useModal"
 import InfoModal from "../ui/InfoModal"
 import type { WebExtrasProps } from "../../types/types"
 import InfoModalChildren from "../ui/InfoModalChildren"
@@ -7,7 +7,7 @@ import InfoModalChildren from "../ui/InfoModalChildren"
 const WebExtras = ({children, checked, id, type}: WebExtrasProps) => {
 
   const { totalExtras, sum, sub, handleInputChange } = useExtras(checked, id, type)
-  const { open, setOpen } = useModalInfo()
+  const { open, setOpen } = useModal()
 
   return (
     <>

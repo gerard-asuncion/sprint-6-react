@@ -23,11 +23,11 @@ export type WebExtrasProps = {
     type: string
 }
 
-export type ModalInfoProps = {
+export type ModalProps = {
     open: boolean,
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
     onClose: () => void,
-    children: React.ReactNode
+    children?: React.ReactNode
 }
 
 export type PriceContextType = {

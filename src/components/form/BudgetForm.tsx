@@ -2,11 +2,14 @@ import useSubmit from "../../hooks/useSubmit"
 import { useContext } from "react"
 import { ValidationContext } from "../../context/ValidationContext"
 import { displayColorBorder } from "../../utils/utils"
+import ResetModal from "./ResetModal"
+import useModal from "../../hooks/useModal"
 
 const BudgetForm = () => {
 
   const { errors } = useContext(ValidationContext)
   const { name, setName, phone, setPhone, email, setEmail, handleSubmit, resetBudgets } = useSubmit()
+  const { open, setOpen } = useModal()
 
   return (
     <>
@@ -42,7 +45,7 @@ const BudgetForm = () => {
         </form>
         <button 
             className="text-white bg-gray-800 border-2 border-gray-800 rounded-md"
-            onClick={resetBudgets}>
+            onClick={() => {setOpen(true)}}>
             Reset
           </button>
       </section>
@@ -53,6 +56,7 @@ const BudgetForm = () => {
           : <div className="flex items-center gap-2"><img className="size-4" src="/warning.svg" alt="!" /><p key={index}>{error.message}</p></div>
         )}     
       </section>
+      <ResetModal open={open} setOpen={setOpen} onClose={() => setOpen(false)}></ResetModal>
     </>
   )
 }

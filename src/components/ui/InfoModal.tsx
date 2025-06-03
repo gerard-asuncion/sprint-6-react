@@ -1,8 +1,8 @@
-import type { ModalInfoProps } from "../../types/types"
+import type { ModalProps } from "../../types/types"
 import { setModalBackground, setModalVisibility } from "../../utils/utils"
 
 
-const InfoModal = ({open, setOpen, onClose, children}: ModalInfoProps) => {
+const InfoModal = ({open, setOpen, onClose, children}: ModalProps) => {
 
   return (
     <>
