@@ -107,3 +107,23 @@ export const displayColorBorder = (errorField: string, errors: ErrorType[]): str
     errors.some(error => error.input === errorField)
     ? 'border-red-700'
     : 'border-gray-500'
+
+export const setModalBackground = (openState: boolean): string =>
+    openState
+    ? "visible bg-black/20"
+    : "hidden"
+
+export const setModalVisibility = (openState: boolean): string =>
+    openState
+    ? "scale-100 opacity-100" 
+    : "hidden"
+
+export const setModalInfoChildrenClassNames = (element: string): string => {
+    if(element === "title"){
+        return "font-bold p-3"
+    }else if(element === "p"){
+        return "text-neutral-600 p-3"
+    }else{
+        return ""
+    }
+}

@@ -23,6 +23,13 @@ export type WebExtrasProps = {
     type: string
 }
 
+export type ModalInfoProps = {
+    open: boolean,
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>
+    onClose: () => void,
+    children: React.ReactNode
+}
+
 export type PriceContextType = {
     totalPrice: number,
     setTotalPrice: React.Dispatch<React.SetStateAction<number>>
@@ -62,4 +69,8 @@ export type ValidationContextType = {
 export type ErrorType = {
     input?: string,
     message: string 
+}
+
+export type InfoModalChildrenProps =  {
+    type: string
 }
