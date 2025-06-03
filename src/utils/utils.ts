@@ -1,5 +1,6 @@
-import type { Section } from "../types/types"
+import type { Section, ErrorType } from "../types/types"
 import { Budget } from "../classes/Budget"
+import type { ErrorResponse } from "react-router-dom"
 
 export const styleCheck = (currentSection: Section): string =>
     currentSection.isChecked ? 'border-indigo-500 border-2' : ''
@@ -79,7 +80,7 @@ export const sortBudgets = (budgets: Budget[], value: string): Budget[] => {
     return sortResult
 }
 
-export const validationErrorMessage = (errors: string[]): string => {
+export const validationErrorMessage = (errors: ErrorType[]): string => {
     let message = ""
     if(errors.length === 1){
         message = "Error de validació:"
@@ -88,3 +89,8 @@ export const validationErrorMessage = (errors: string[]): string => {
     }
     return message
 }
+
+export const displayColorBorder = (errorField: string, errors: ErrorType[]): string =>
+    errors.some(error => error.input === errorField)
+    ? 'border-red-700'
+    : 'border-gray-500'

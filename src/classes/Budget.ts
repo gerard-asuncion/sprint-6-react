@@ -1,7 +1,7 @@
 export class Budget {
 
     #name: string;
-    #phone: number;
+    #phone: string;
     #email: string;
     #totalBudget: number;
     #services: string[];
@@ -18,7 +18,7 @@ export class Budget {
 
     static counter: number = 0
 
-    constructor(name: string, phone: number, email: string, totalBudget: number, services: string[], pages: number | null, languages: number | null){
+    constructor(name: string, phone: string, email: string, totalBudget: number, services: string[], pages: number | null, languages: number | null){
         this.#name = name,
         this.#phone = phone,
         this.#email = email,

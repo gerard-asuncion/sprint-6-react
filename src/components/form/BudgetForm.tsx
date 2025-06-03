@@ -1,11 +1,12 @@
 import useSubmit from "../../hooks/useSubmit"
 import { useContext } from "react"
 import { ValidationContext } from "../../context/ValidationContext"
+import { displayColorBorder } from "../../utils/utils"
 
 const BudgetForm = () => {
 
   const { errors } = useContext(ValidationContext)
-  const { setName, setPhone, setEmail, handleSubmit, resetBudgets } = useSubmit()
+  const { name, setName, phone, setPhone, email, setEmail, handleSubmit, resetBudgets } = useSubmit()
 
   return (
     <>
@@ -13,24 +14,24 @@ const BudgetForm = () => {
         <h2 className="text-lg font-bold">Demanar pressupost</h2>
         <form onSubmit={handleSubmit}>
           <input
-            className="border-2 border-gray-500 rounded-md"
+            className={`${displayColorBorder("name", errors)} border-2`}
             type="text" 
             name="name" 
-            id="name"
+            value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Nom" />
           <input 
-            className="border-2 border-gray-500 rounded-md"  
+            className={`${displayColorBorder("phone", errors)} border-2`}
             type="number" 
             name="phone" 
-            id="phone"
-            onChange={(e) => setPhone(Number(e.target.value))}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             placeholder="Telèfon" />
           <input 
-            className="border-2 border-gray-500 rounded-md"
+            className={`${displayColorBorder("email", errors)} border-2`}
             type="email" 
             name="email" 
-            id="email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email" />
           <button 
@@ -48,8 +49,8 @@ const BudgetForm = () => {
       <section className="w-90/100">
         {errors.map((error, index) => 
           index === 0
-          ? <p key={index}>{error}</p>
-          : <div className="flex items-center gap-2"><img className="size-4" src="/warning.svg" alt="!" /><p key={index}>{error}</p></div>
+          ? <p key={index}>{error.message}</p>
+          : <div className="flex items-center gap-2"><img className="size-4" src="/warning.svg" alt="!" /><p key={index}>{error.message}</p></div>
         )}     
       </section>
     </>

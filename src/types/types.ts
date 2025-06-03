@@ -55,6 +55,11 @@ export type CustomBudgetSortProps = {
 }
 
 export type ValidationContextType = {
-    errors: string[],
-    setErrors: React.Dispatch<React.SetStateAction<string[]>>
+    errors: ErrorType[],
+    setErrors: React.Dispatch<React.SetStateAction<ErrorType[]>>
+}
+
+export type ErrorType = {
+    input?: string,
+    message: string 
 }
