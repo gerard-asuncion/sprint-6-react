@@ -1,7 +1,9 @@
 import BudgetsProvider from "../context/BudgetsProvider"
 import SectionsProvider from "../context/SectionsProvider"
 import PriceProvider from "../context/PriceProvider"
+import DiscountProvider from "../context/discount/DiscountProvider"
 import Header from "../components/ui/Header"
+import DiscountSwitch from "../components/form/DiscountSwitch"
 import Checkbox from "../components/form/Checkbox"
 import TotalBudget from "../components/ui/TotalBudget"
 import CustomBudgetsSection from "../components/ui/CustomBudgetsSection"
@@ -15,14 +17,17 @@ const MainApp = () => {
     <BudgetsProvider>
       <SectionsProvider>
         <PriceProvider>
-          <Header></Header>
-          {arrSectionsId.map(id => 
-          <Checkbox 
-          key={id} 
-          id={id}
-          ></Checkbox>)}
-          <TotalBudget></TotalBudget>
-          <CustomBudgetsSection></CustomBudgetsSection>
+          <DiscountProvider>
+            <Header></Header>
+            <DiscountSwitch></DiscountSwitch>
+            {arrSectionsId.map(id => 
+            <Checkbox 
+            key={id} 
+            id={id}
+            ></Checkbox>)}
+            <TotalBudget></TotalBudget>
+            <CustomBudgetsSection></CustomBudgetsSection>
+          </DiscountProvider>
         </PriceProvider>
       </SectionsProvider>
     </BudgetsProvider>
