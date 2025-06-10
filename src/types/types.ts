@@ -32,7 +32,9 @@ export type ModalProps = {
 
 export type PriceContextType = {
     totalPrice: number,
-    setTotalPrice: React.Dispatch<React.SetStateAction<number>>
+    setTotalPrice: React.Dispatch<React.SetStateAction<number>>,
+    webPrice: number,
+    setWebPrice:  React.Dispatch<React.SetStateAction<number>>
 }
 
 export type ProviderProps = {
@@ -73,4 +75,9 @@ export type ErrorType = {
 
 export type InfoModalChildrenProps =  {
     type: string
+}
+
+export type DiscountContextType = {
+    discount: boolean,
+    setDiscount: React.Dispatch<React.SetStateAction<boolean>>
 }
