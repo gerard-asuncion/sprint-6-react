@@ -7,6 +7,7 @@ export type Section = {
     description: string,
     price: number,
     isChecked: boolean,
+    hasDiscount: boolean,
     isWeb: boolean,
     pages: number | null,
     languages: number | null
