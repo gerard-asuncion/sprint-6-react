@@ -49,11 +49,11 @@ const useExtras = (checked: boolean, id: number, type: string) => {
                                                 .reduce((acc: number, cur: number) => acc + cur, 0)
           
             setSections(sections.map((section: Section) => {
-                    const original: Section = structuredClone(sectionsJson).find((original: Section) => original.isWeb)!
-                    return section.isWeb
-                    ? {...section, price: original.price}  
-                    : {...section}                                              
-                }))
+                const original: Section = structuredClone(sectionsJson).find((original: Section) => original.isWeb)!
+                return section.isWeb
+                ? {...section, price: original.price}  
+                : {...section}                                              
+            }))
        
             setTotalPrice(activeSectionsPrice) 
             setTotalExtras(1)
