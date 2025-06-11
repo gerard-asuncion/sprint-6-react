@@ -1,11 +1,15 @@
 import { useContext, useState, useRef, useEffect } from "react"
 import { SectionsContext } from "../context/SectionsContext"
 import { PriceContext } from "../context/PriceContext"
+import { DiscountContext } from "../context/discount/DiscountContext"
+import sectionsJson from "../data/sections.json" assert { type: "json" }
+import type { Section } from "../types/types"
 
 const useExtras = (checked: boolean, id: number, type: string) => {
 
     const { sections, setSections } = useContext(SectionsContext)
-    const { setTotalPrice } = useContext(PriceContext)
+    const { discount } = useContext(DiscountContext)
+     const { setTotalPrice } = useContext(PriceContext)
   
     const [totalExtras, setTotalExtras] = useState<number>(1)
     const previousExtrasRef = useRef<number>(totalExtras)
@@ -19,14 +23,37 @@ const useExtras = (checked: boolean, id: number, type: string) => {
 
         if(checkedWebSection){
 
-            setTotalPrice((prev: number) => prev + difference * 30)
+            if(discount){
+                setSections(prev => prev.map(section => {                  
+                    const newPrice = section.price + difference * 30 * 0.8  
+                    return section.isWeb
+                    ? {...section, price: newPrice}
+                    : {...section}
+                }))
+                setTotalPrice((prev: number) => prev + difference * 30 * 0.8)
+            } else {
+                setSections(prev => prev.map(section => {                  
+                    const newPrice = section.price + difference * 30
+                    return section.isWeb
+                    ? {...section, price: newPrice}
+                    : {...section}
+                }))
+                setTotalPrice((prev: number) => prev + difference * 30)
+            }
             previousExtrasRef.current = totalExtras
 
         } else {
 
-            const activeSectionsPrice: number = sections.filter(section => section.isChecked === true)
-                                                .map(section => section.price)
-                                                .reduce((acc, cur) => acc + cur, 0)
+            const activeSectionsPrice: number = sections.filter((section: Section) => section.isChecked === true)
+                                                .map((section: Section) => section.price)
+                                                .reduce((acc: number, cur: number) => acc + cur, 0)
+          
+            setSections(sections.map((section: Section) => {
+                    const original: Section = structuredClone(sectionsJson).find((original: Section) => original.isWeb)!
+                    return section.isWeb
+                    ? {...section, price: original.price}  
+                    : {...section}                                              
+                }))
        
             setTotalPrice(activeSectionsPrice) 
             setTotalExtras(1)
@@ -45,7 +72,7 @@ const useExtras = (checked: boolean, id: number, type: string) => {
             return {...section}
         })) 
         
-    }, [totalExtras, checkedWebSection])
+    }, [totalExtras, checkedWebSection, discount])
 
     const sum = (): void => setTotalExtras(prev => prev + 1)
     const sub = (): void => setTotalExtras(prev => prev > 1 ? prev - 1 : 1)
