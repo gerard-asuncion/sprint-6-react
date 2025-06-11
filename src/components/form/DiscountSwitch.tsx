@@ -1,9 +1,23 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
+import { SectionsContext } from "../../context/SectionsContext"
+import { applyDiscount } from "../../utils/utils"
+import { PriceContext } from "../../context/PriceContext"
 import { DiscountContext } from "../../context/discount/DiscountContext"
 
 const DiscountSwitch = () => {
 
   const { discount, setDiscount } = useContext(DiscountContext)
+  const { setTotalPrice } = useContext(PriceContext)
+  const { setSections } = useContext(SectionsContext)
+
+  useEffect(() => {
+
+        setSections(prev => prev.map(section => { return {...section, hasDiscount: !section.hasDiscount} }))
+        setSections(prev => prev.map(section => { return {...section, price: applyDiscount(section.price, !section.hasDiscount)}}))
+
+        setTotalPrice(prev => applyDiscount(prev, !discount))
+
+    }, [discount])
 
   return (
     <article className="flex justify-center w-90/100 p-4 m-auto mt-5 gap-7">
