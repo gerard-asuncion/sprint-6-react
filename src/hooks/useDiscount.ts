@@ -9,12 +9,7 @@ const useDiscount = () => {
     const { discount } = useContext(DiscountContext)
     const { setSections } = useContext(SectionsContext)
 
-    useEffect(() => {
-
-        setSections(prev => prev.map(section => { return {...section, hasDiscount: !section.hasDiscount} }))
-        setSections(prev => prev.map(section => { return {...section, price: applyDiscount(section.price, section.hasDiscount)}}))
-
-    }, [discount])
+    
  
 }
 
