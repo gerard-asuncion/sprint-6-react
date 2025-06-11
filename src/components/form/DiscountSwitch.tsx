@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react"
+import { useContext } from "react"
+import { DiscountContext } from "../../context/discount/DiscountContext"
 
 const DiscountSwitch = () => {
 
-  const [discount, setDiscount] = useState<boolean>()
-
-  useEffect(() => {   
-        
-    }, [discount])
+  const { discount, setDiscount } = useContext(DiscountContext)
 
   return (
     <article className="flex justify-center w-90/100 p-4 m-auto mt-5 gap-7">
