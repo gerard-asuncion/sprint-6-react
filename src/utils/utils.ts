@@ -130,5 +130,5 @@ export const setModalInfoChildrenClassNames = (element: string): string => {
 
 export const applyDiscount = (price: number, hasDiscount: boolean): number => 
     hasDiscount
-    ? price / 0.8
-    : price * 0.8
+    ? price * 0.8
+    : price / 0.8

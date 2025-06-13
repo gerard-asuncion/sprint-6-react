@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { BudgetsContext } from "../context/BudgetsContext"
+import { BudgetsContext } from "../context/budgets/BudgetsContext"
 import type { Budget } from "../classes/Budget"
 
 const useSearch = () => {

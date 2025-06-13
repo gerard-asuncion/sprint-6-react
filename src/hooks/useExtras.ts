@@ -1,6 +1,6 @@
 import { useContext, useState, useRef, useEffect } from "react"
-import { SectionsContext } from "../context/SectionsContext"
-import { PriceContext } from "../context/PriceContext"
+import { SectionsContext } from "../context/sections/SectionsContext"
+import { PriceContext } from "../context/price/PriceContext"
 import { DiscountContext } from "../context/discount/DiscountContext"
 import sectionsJson from "../data/sections.json" assert { type: "json" }
 import type { Section } from "../types/types"

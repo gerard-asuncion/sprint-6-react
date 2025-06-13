@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { SectionsContext } from "../context/SectionsContext"
+import { SectionsContext } from "../context/sections/SectionsContext"
 
 const useCheck = () => {
 

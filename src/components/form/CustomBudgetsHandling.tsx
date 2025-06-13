@@ -1,4 +1,4 @@
-import { BudgetsContext } from "../../context/BudgetsContext"
+import { BudgetsContext } from "../../context/budgets/BudgetsContext"
 import { useState, useContext } from "react"
 import useSearch from "../../hooks/useSearch"
 import { safetyCustomBudgetsDisplay, displaySearch } from "../../utils/utils"

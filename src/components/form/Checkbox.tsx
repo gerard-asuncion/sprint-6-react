@@ -1,6 +1,6 @@
 import WebExtras from "./WebExtras"
 import type { Section, CheckboxProps } from "../../types/types"
-import { SectionsContext } from "../../context/SectionsContext"
+import { SectionsContext } from "../../context/sections/SectionsContext"
 import { useContext } from "react"
 import useCheck from "../../hooks/useCheck"
 import usePrice from "../../hooks/usePrice"

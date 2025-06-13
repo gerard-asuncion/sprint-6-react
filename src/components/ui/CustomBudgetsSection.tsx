@@ -1,9 +1,9 @@
 import { useContext } from "react"
-import { BudgetsContext } from "../../context/BudgetsContext"
+import { BudgetsContext } from "../../context/budgets/BudgetsContext"
 import BudgetForm from "../form/BudgetForm"
 import CustomBudgetsHandling from "../form/CustomBudgetsHandling"
 import { displayCustomBudgetsSection } from "../../utils/utils"
-import ValidationProvider from "../../context/ValidationProvider"
+import ValidationProvider from "../../context/validation/ValidationProvider"
 
 const CustomBudgetsSection = () => {
 

@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { SectionsContext } from "../context/SectionsContext";
-import { PriceContext } from "../context/PriceContext";
+import { SectionsContext } from "../context/sections/SectionsContext";
+import { PriceContext } from "../context/price/PriceContext";
 import type { Section } from "../types/types";
 
 const usePrice = () => {

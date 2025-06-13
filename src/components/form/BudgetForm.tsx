@@ -1,6 +1,6 @@
 import useSubmit from "../../hooks/useSubmit"
 import { useContext } from "react"
-import { ValidationContext } from "../../context/ValidationContext"
+import { ValidationContext } from "../../context/validation/ValidationContext"
 import { displayColorBorder } from "../../utils/utils"
 import ResetModal from "./ResetModal"
 import useModal from "../../hooks/useModal"
