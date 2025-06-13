@@ -4,6 +4,7 @@ import { PriceContext } from "../context/price/PriceContext"
 import { DiscountContext } from "../context/discount/DiscountContext"
 import sectionsJson from "../data/sections.json" assert { type: "json" }
 import type { Section } from "../types/types"
+import { applyDiscount } from "../utils/utils"
 
 const useExtras = (checked: boolean, id: number, type: string) => {
 
@@ -50,9 +51,13 @@ const useExtras = (checked: boolean, id: number, type: string) => {
           
             setSections(sections.map((section: Section) => {
                 const original: Section = structuredClone(sectionsJson).find((original: Section) => original.isWeb)!
-                return section.isWeb
-                ? {...section, price: original.price}  
-                : {...section}                                              
+                if(section.isWeb && !section.hasDiscount){
+                    return {...section, price: original.price}  
+                } else if(section.isWeb && section.hasDiscount){
+                    return {...section, price: applyDiscount(original.price, section.hasDiscount)}
+                } else {
+                    return {...section}
+                }                                                  
             }))
        
             setTotalPrice(activeSectionsPrice) 
@@ -72,7 +77,7 @@ const useExtras = (checked: boolean, id: number, type: string) => {
             return {...section}
         })) 
         
-    }, [totalExtras, checkedWebSection, discount])
+    }, [totalExtras, checkedWebSection])
 
     const sum = (): void => setTotalExtras(prev => prev + 1)
     const sub = (): void => setTotalExtras(prev => prev > 1 ? prev - 1 : 1)

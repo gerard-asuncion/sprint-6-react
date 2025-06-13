@@ -8,14 +8,15 @@ const DiscountSwitch = () => {
 
   const { discount, setDiscount } = useContext(DiscountContext)
   const { setTotalPrice } = useContext(PriceContext)
-  const { setSections } = useContext(SectionsContext)
+  const { sections, setSections } = useContext(SectionsContext)
 
   useEffect(() => {
 
         setSections(prev => prev.map(section => { return {...section, hasDiscount: !section.hasDiscount} }))
         setSections(prev => prev.map(section => { return {...section, price: applyDiscount(section.price, section.hasDiscount)}}))
+        console.log(sections.map(section => section.hasDiscount))
 
-        setTotalPrice(prev => applyDiscount(prev, !discount))
+        setTotalPrice(prev => applyDiscount(prev, discount))
 
     }, [discount])
 
