@@ -10,7 +10,7 @@ export class Budget {
     #date: Date;
     #id: number;
 
-    static fromJSON(budget: any): Budget {
+    static fromJSON(budget: Budget): Budget {
         return new Budget(budget.name, budget.phone, budget.email, budget.totalBudget, budget.services, budget.pages, budget.languages);
     }
 

@@ -8,17 +8,16 @@ const DiscountSwitch = () => {
 
   const { discount, setDiscount } = useContext(DiscountContext)
   const { setTotalPrice } = useContext(PriceContext)
-  const { sections, setSections } = useContext(SectionsContext)
+  const { setSections } = useContext(SectionsContext)
 
   useEffect(() => {
 
-        setSections(prev => prev.map(section => { return {...section, hasDiscount: !section.hasDiscount} }))
-        setSections(prev => prev.map(section => { return {...section, price: applyDiscount(section.price, section.hasDiscount)}}))
-        console.log(sections.map(section => section.hasDiscount))
+      setSections(prev => prev.map(section => { return {...section, hasDiscount: !section.hasDiscount} }))
+      setSections(prev => prev.map(section => { return {...section, price: applyDiscount(section.price, section.hasDiscount)}}))
 
-        setTotalPrice(prev => applyDiscount(prev, discount))
+      setTotalPrice(prev => applyDiscount(prev, discount))
 
-    }, [discount])
+  }, [discount])
 
   return (
     <article className="flex justify-center w-90/100 p-4 m-auto mt-5 gap-7">
