@@ -18,9 +18,9 @@ const CustomBudgetsHandling = () => {
   
   return (
     <>
-      <h2 className="text-lg font-bold">Pressupostos en curs:</h2>
+      <h2 className="text-md font-bold mb-4">Pressupostos en curs:</h2>
       <nav className="flex justify-between">
-        <form className="flex border-2 border-gray-400 rounded-md">
+        <form className="flex border-2 border-gray-400 rounded-md text-sm">
           <input 
             type="text" 
             name="search"
@@ -29,7 +29,7 @@ const CustomBudgetsHandling = () => {
             onChange={(e) => setSearch(e.target.value)} />
           <img src="/search.svg" alt="search" className="size-5" />
         </form>
-        <select name="sort" id="sort" onChange={handleValueChange} value={sortValue}>
+        <select name="sort" id="sort" onChange={handleValueChange} value={sortValue} className="text-xs">
           <option value="1">Data (més recents)</option>
           <option value="2">Data (més antics)</option>
           <option value="3">Import (més barats)</option>
@@ -37,7 +37,7 @@ const CustomBudgetsHandling = () => {
           <option value="5">Nom</option>
         </select>
         <button 
-            className="text-white bg-indigo-500 border-2 border-indigo-500 rounded-md p-0.5"
+            className="text-white bg-indigo-500 border-2 border-indigo-500 rounded-md p-1"
             onClick={() => {setOpen(true)}}>
             Reset
         </button>

@@ -11,7 +11,7 @@ const BudgetForm = () => {
   return (
     <>
       <section className="flex flex-col items-around w-90/100 p-4 rounded-lg m-auto shadow-md gap-2">
-        <h2 className="text-lg font-bold w-90/100">Demanar pressupost</h2>
+        <h2 className="text-lg font-bold w-90/100 mb-1">Demanar pressupost</h2>
         <form onSubmit={handleSubmit}
         className="flex flex-col gap-2">
           <input
