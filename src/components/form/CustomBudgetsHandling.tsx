@@ -20,14 +20,14 @@ const CustomBudgetsHandling = () => {
     <>
       <h2 className="text-md font-bold mb-4">Pressupostos en curs:</h2>
       <nav className="flex justify-between">
-        <form className="flex border-2 border-gray-400 rounded-md text-sm">
+        <form className="flex border-2 border-gray-400 items-center rounded-md text-sm">
           <input 
             type="text" 
             name="search"
             placeholder="Cercar"
             className="focus:outline-none"
             onChange={(e) => setSearch(e.target.value)} />
-          <img src="/search.svg" alt="search" className="size-5" />
+          <img src="/search.svg" alt="search" className="size-4" />
         </form>
         <select name="sort" id="sort" onChange={handleValueChange} value={sortValue} className="text-xs">
           <option value="1">Data (més recents)</option>

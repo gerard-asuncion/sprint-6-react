@@ -43,8 +43,8 @@ const Checkbox = ({id}: CheckboxProps) => {
             <WebExtras 
                 checked={currentSection.isChecked} 
                 id={currentSection.id}
-                type="pages"
-                >Nombre de pàgines
+                type="pages">
+                Nombre de pàgines
             </WebExtras>
             <WebExtras 
                 checked={currentSection.isChecked} 
