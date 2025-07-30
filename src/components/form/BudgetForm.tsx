@@ -15,21 +15,21 @@ const BudgetForm = () => {
         <form onSubmit={handleSubmit}
         className="flex flex-col gap-2">
           <input
-            className={`${displayColorBorder("name", errors)} p-0.5 border-2 rounded-md border-gray-200`}
+            className={`${displayColorBorder("name", errors)} p-0.5 border-2 rounded-md`}
             type="text" 
             name="name" 
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Nom" />
           <input 
-            className={`${displayColorBorder("phone", errors)} p-0.5 border-2 rounded-md border-gray-200`}
+            className={`${displayColorBorder("phone", errors)} p-0.5 border-2 rounded-md`}
             type="number" 
             name="phone" 
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="Telèfon" />
           <input 
-            className={`${displayColorBorder("email", errors)} p-0.5 border-2 rounded-md border-gray-200`}
+            className={`${displayColorBorder("email", errors)} p-0.5 border-2 rounded-md`}
             type="email" 
             name="email" 
             value={email}

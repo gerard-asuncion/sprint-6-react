@@ -106,7 +106,7 @@ export const validationErrorMessage = (errors: ErrorType[]): string => {
 export const displayColorBorder = (errorField: string, errors: ErrorType[]): string =>
     errors.some(error => error.input === errorField)
     ? 'border-red-700'
-    : 'border-gray-500'
+    : 'border-gray-400'
 
 export const setModalBackground = (openState: boolean): string =>
     openState

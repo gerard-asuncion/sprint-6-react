@@ -20,7 +20,7 @@ const CustomBudgetsHandling = () => {
     <>
       <h2 className="text-lg font-bold">Pressupostos en curs:</h2>
       <nav className="flex justify-between">
-        <form className="flex border-2 border-gray-500 rounded-md">
+        <form className="flex border-2 border-gray-400 rounded-md">
           <input 
             type="text" 
             name="search"
@@ -48,9 +48,7 @@ const CustomBudgetsHandling = () => {
         ? <CustomBudgetsSearch search={search}></CustomBudgetsSearch>
         : <CustomBudgetsSort value={sortValue}></CustomBudgetsSort>
       : <div>Sorry! Custom budgets data saved in local storage is corrupted, please make a reset and start again.</div>
-      }
-     
-      
+      }     
     </>
   )
 }

@@ -12,15 +12,15 @@ const CustomBudgetDisplay = ({budget}: BudgetProps) => {
     <section className="flex flex-col items-around p-4 rounded-lg m-auto mt-5 shadow-md">
         <section className="flex justify-between items-center">
             <article className="w-60/100">
-                <h2 className="text-lg font-bold">{displayName}</h2>
-                <p className="text-neutral-600">{displayEmail}</p>
-                <p className="text-neutral-600">{displayPhone}</p>
+                <h2 className="text-sm font-bold">{displayName}</h2>
+                <p className="text-xs text-neutral-600">{displayEmail}</p>
+                <p className="text-xs text-neutral-600">{displayPhone}</p>
             </article>
             <article>
-                <h3>Serveis contractats:</h3>
+                <h3 className="text-xs">Serveis contractats:</h3>
                 <ul>
                     {budget.services.map((service: string, index: number) => 
-                        <li key={index}>
+                        <li key={index} className="text-xs">
                             {service === "Web" 
                             ? `${service} (${budget.pages} ${singPluralPagLang("pages", budget.pages!)}, 
                                 ${budget.languages} ${singPluralPagLang("languages", budget.languages!)})`
@@ -29,7 +29,7 @@ const CustomBudgetDisplay = ({budget}: BudgetProps) => {
                 </ul>
                 
             </article>
-            <article className="text-xl font-bold w-20/100">
+            <article className="text-md font-bold w-20/100">
                 {displayTotal}€
             </article>
         </section>
