@@ -4,11 +4,14 @@ import useSearch from "../../hooks/useSearch"
 import { safetyCustomBudgetsDisplay, displaySearch } from "../../utils/utils"
 import CustomBudgetsSearch from "./CustomBudgetsSearch"
 import CustomBudgetsSort from "./CustomBudgetsSort"
+import useModal from "../../hooks/useModal"
+import ResetModal from "./ResetModal"
 
 const CustomBudgetsHandling = () => {
 
   const { budgets } = useContext(BudgetsContext)
   const { search, setSearch } = useSearch()
+  const { open, setOpen } = useModal()
 
   const [sortValue, setSortValue] = useState("1")
   const handleValueChange = (e: React.ChangeEvent<HTMLSelectElement>) => setSortValue(e.target.value)
@@ -33,7 +36,13 @@ const CustomBudgetsHandling = () => {
           <option value="4">Import (més cars)</option>
           <option value="5">Nom</option>
         </select>
+        <button 
+            className="text-white bg-indigo-500 border-2 border-indigo-500 rounded-md p-0.5"
+            onClick={() => {setOpen(true)}}>
+            Reset
+        </button>
       </nav>
+      <ResetModal open={open} setOpen={setOpen} onClose={() => setOpen(false)}></ResetModal>
       {safetyCustomBudgetsDisplay(budgets)
       ? displaySearch(search)
         ? <CustomBudgetsSearch search={search}></CustomBudgetsSearch>
