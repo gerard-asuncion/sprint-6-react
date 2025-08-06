@@ -27,7 +27,7 @@ const CustomBudgetsHandling = () => {
             placeholder="Cercar"
             className="focus:outline-none"
             onChange={(e) => setSearch(e.target.value)} />
-          <img src="/search.svg" alt="search" className="size-4" />
+          <img src="/search.svg" alt="search" className="size-4 cursor-pointer" />
         </form>
         <select name="sort" id="sort" onChange={handleValueChange} value={sortValue} className="text-xs">
           <option value="1">Data (més recents)</option>
@@ -37,7 +37,7 @@ const CustomBudgetsHandling = () => {
           <option value="5">Nom</option>
         </select>
         <button 
-            className="text-white bg-indigo-500 border-2 border-indigo-500 rounded-md p-1"
+            className="text-white bg-indigo-500 border-2 border-indigo-500 rounded-md p-1 cursor-pointer"
             onClick={() => {setOpen(true)}}>
             Reset
         </button>

@@ -29,6 +29,7 @@ const Checkbox = ({id}: CheckboxProps) => {
             </article>
             <article className="w-20/100 flex justify-around">
                 <input type="checkbox" 
+                    className="cursor-pointer"
                     name="add" 
                     id={`${currentSection.id}`} 
                     checked={currentSection.isChecked} 

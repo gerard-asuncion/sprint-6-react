@@ -36,7 +36,7 @@ const BudgetForm = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email" />
           <button 
-            className="text-white bg-indigo-500 border-2 border-indigo-500 rounded-md p-0.5"
+            className="text-white bg-indigo-500 border-2 border-indigo-500 rounded-md p-0.5 cursor-pointer"
             type="submit">
             Sol·licitar pressupost
           </button>

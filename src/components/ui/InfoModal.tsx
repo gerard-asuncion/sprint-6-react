@@ -18,7 +18,7 @@ const InfoModal = ({open, setOpen, onClose, children}: ModalProps) => {
                     {children}
                 </div>
                 <button
-                    className="text-white bg-gray-500 border-2 border-gray-500 rounded-md w-fit p-1"
+                    className="text-white bg-gray-500 border-2 border-gray-500 rounded-md w-fit p-1 cursor-pointer"
                     onClick={() => setOpen(false)}>
                     D'acord
                 </button>

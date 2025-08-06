@@ -23,12 +23,12 @@ const ResetModal = ({open, setOpen, onClose}: ModalProps) => {
                     </div>
                     <div className="flex w-50/100 justify-around">
                         <button
-                            className="text-white bg-green-800 border-green-800 rounded-md w-fit p-2"
+                            className="text-white bg-green-800 border-green-800 rounded-md w-fit p-2 cursor-pointer"
                             onClick={() => setOpen(false)}>
                             Cancel·lar
                         </button>
                         <button 
-                            className="text-white bg-red-800 border-red-800 rounded-md w-fit p-2"
+                            className="text-white bg-red-800 border-red-800 rounded-md w-fit p-2 cursor-pointer"
                             onClick={resetBudgets}>Procedir</button>
                     </div>
                     

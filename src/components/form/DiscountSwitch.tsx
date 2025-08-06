@@ -22,7 +22,7 @@ const DiscountSwitch = () => {
   return (
     <article className="flex justify-center w-90/100 p-4 m-auto mt-5 gap-4 text-sm">
         <div className="text-neutral-600">Pagament mensual</div>
-        <label className="relative inline-block w-10 h-5">
+        <label className="relative inline-block w-10 h-5 cursor-pointer">
             <input 
                 type="checkbox" 
                 className="peer sr-only"
