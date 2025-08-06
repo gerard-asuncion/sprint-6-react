@@ -18,15 +18,17 @@ const MainApp = () => {
       <SectionsProvider>
         <PriceProvider>
           <DiscountProvider>
-            <Header></Header>
-            <DiscountSwitch></DiscountSwitch>
-            {arrSectionsId.map(id => 
-            <Checkbox 
-            key={id} 
-            id={id}
-            ></Checkbox>)}
-            <TotalBudget></TotalBudget>
-            <CustomBudgetsSection></CustomBudgetsSection>
+            <section className="bg-amber-100 pt-10 md:pt-15">
+              <Header></Header>
+              <DiscountSwitch></DiscountSwitch>
+              {arrSectionsId.map(id => 
+              <Checkbox 
+              key={id} 
+              id={id}
+              ></Checkbox>)}
+              <TotalBudget></TotalBudget>
+              <CustomBudgetsSection></CustomBudgetsSection>
+            </section>
           </DiscountProvider>
         </PriceProvider>
       </SectionsProvider>

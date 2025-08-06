@@ -1,9 +1,9 @@
 
 const Header = () => {
   return (
-    <header className="bg-linear-to-r/srgb from-indigo-500 to-teal-400 w-90/100 h-20 rounded-lg flex justify-center
-    items-center m-auto mt-5">
-        <h1 className="text-xl font-bold">Aconsegueix la millor qualitat</h1>
+    <header className="bg-linear-to-r/srgb from-indigo-500 to-teal-400 w-90/100 h-25 rounded-lg flex justify-center
+    items-center m-auto md:w-70/100 md:h-30">
+        <h1 className="text-xl font-bold md:text-3xl">Aconsegueix la millor qualitat</h1>
     </header>
   )
 }

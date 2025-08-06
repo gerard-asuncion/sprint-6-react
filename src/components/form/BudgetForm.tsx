@@ -10,33 +10,33 @@ const BudgetForm = () => {
 
   return (
     <>
-      <section className="flex flex-col items-around w-90/100 p-4 rounded-lg m-auto shadow-md gap-2">
+      <section className="flex flex-col items-around w-90/100 p-4 rounded-lg bg-white m-auto shadow-md gap-2 md:w-70/100">
         <h2 className="text-lg font-bold w-90/100 mb-1">Demanar pressupost</h2>
         <form onSubmit={handleSubmit}
-        className="flex flex-col gap-2">
+        className="flex flex-col gap-2 md:flex-row">
           <input
-            className={`${displayColorBorder("name", errors)} p-0.5 border-2 rounded-md`}
+            className={`${displayColorBorder("name", errors)} p-0.5 border-2 rounded-md md:flex-1`}
             type="text" 
             name="name" 
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Nom" />
           <input 
-            className={`${displayColorBorder("phone", errors)} p-0.5 border-2 rounded-md`}
+            className={`${displayColorBorder("phone", errors)} p-0.5 border-2 rounded-md md:flex-1`}
             type="number" 
             name="phone" 
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="Telèfon" />
           <input 
-            className={`${displayColorBorder("email", errors)} p-0.5 border-2 rounded-md`}
+            className={`${displayColorBorder("email", errors)} p-0.5 border-2 rounded-md md:flex-1`}
             type="email" 
             name="email" 
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email" />
           <button 
-            className="text-white bg-indigo-500 border-2 border-indigo-500 rounded-md p-0.5 cursor-pointer"
+            className="text-white bg-indigo-500 border-2 border-indigo-500 rounded-md p-0.5 cursor-pointer md:flex-1"
             type="submit">
             Sol·licitar pressupost
           </button>

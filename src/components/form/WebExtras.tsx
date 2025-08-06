@@ -11,8 +11,8 @@ const WebExtras = ({children, checked, id, type}: WebExtrasProps) => {
 
   return (
     <>
-      <article className="flex justify-end text-right p-1 gap-1">
-          <label htmlFor={children} className="text-sm">{children}</label>
+      <article className="flex justify-end text-right p-1 gap-1 md:gap-2">
+          <label htmlFor={children} className="text-sm md:text-base">{children}</label>
           <button onClick={() => setOpen(true)} className="cursor-pointer">
             <img src="/question.svg" alt="?" className="size-5" />
           </button>
@@ -22,7 +22,7 @@ const WebExtras = ({children, checked, id, type}: WebExtrasProps) => {
           <input 
             type="number" 
             name={children} 
-            className="border rounded-sm w-12 text-sm text-center"
+            className="border rounded-sm w-12 text-sm text-center md:text-base"
             value={totalExtras} 
             onChange={handleInputChange} />
           <button onClick={sum} className="cursor-pointer">

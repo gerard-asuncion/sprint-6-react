@@ -20,9 +20,9 @@ const DiscountSwitch = () => {
   }, [discount])
 
   return (
-    <article className="flex justify-center w-90/100 p-4 m-auto mt-5 gap-4 text-sm">
+    <article className="flex justify-center w-90/100 p-4 m-auto mt-5 gap-4 text-sm md:text-lg">
         <div className="text-neutral-600">Pagament mensual</div>
-        <label className="relative inline-block w-10 h-5 cursor-pointer">
+        <label className="relative inline-block w-10 h-5 cursor-pointer md:h-7 md:w-13">
             <input 
                 type="checkbox" 
                 className="peer sr-only"
@@ -30,7 +30,7 @@ const DiscountSwitch = () => {
                 checked={discount} 
                 onChange={(e) => {setDiscount(e.target.checked)}} />
             <div className="w-full h-full bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors duration-300"></div>
-            <div className="absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5"></div>
+            <div className="absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5 md:w-6 md:h-6 md:peer-checked:translate-x-6"></div>
         </label>
         <div className="text-neutral-600">Pagament anual</div>
     </article>
