@@ -13,7 +13,7 @@ const CustomBudgetsSection = () => {
     <ValidationProvider>
       <section className="flex flex-col items-center">
         <BudgetForm></BudgetForm>
-        <section className={`w-90/100 ${displayCustomBudgetsSection(budgets)}`}>
+        <section className={`w-90/100 md:w-70/100 ${displayCustomBudgetsSection(budgets)}`}>
           <hr className={`border-2 border-gray-300 border-dashed my-10 w-full`}/>
           <CustomBudgetsHandling></CustomBudgetsHandling> 
         </section>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 const Welcome = () => {
   return (
     <section className="w-screen h-screen flex flex-col justify-center items-center">
-        <article className="text-center m-10 p-5 shadow-md rounded-xl">
+        <article className="text-center m-10 p-5 shadow-md rounded-xl w-80/100 md:w-50/100">
             Benvingut! Amb aquesta app podràs calcular pressupostos per a la creació d'una pàgina web, el posicionament
             d'aquesta i l'ús de publicitat.
         </article>

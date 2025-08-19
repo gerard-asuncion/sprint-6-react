@@ -18,9 +18,9 @@ const CustomBudgetsHandling = () => {
   
   return (
     <>
-      <h2 className="text-md font-bold mb-4">Pressupostos en curs:</h2>
-      <nav className="flex justify-between">
-        <form className="flex border-2 border-gray-400 items-center rounded-md text-sm">
+      <h2 className="text-md font-bold mb-4 md:text-2xl">Pressupostos en curs:</h2>
+      <nav className="flex justify-between shadow-md md:gap-10 bg-white rounded-md p-4 md:p-6">
+        <form className="flex border-2 border-gray-400 items-center rounded-md text-sm md:text-base px-1 md:px-3">
           <input 
             type="text" 
             name="search"
@@ -29,18 +29,20 @@ const CustomBudgetsHandling = () => {
             onChange={(e) => setSearch(e.target.value)} />
           <img src="/search.svg" alt="search" className="size-4 cursor-pointer" />
         </form>
-        <select name="sort" id="sort" onChange={handleValueChange} value={sortValue} className="text-xs">
-          <option value="1">Data (més recents)</option>
-          <option value="2">Data (més antics)</option>
-          <option value="3">Import (més barats)</option>
-          <option value="4">Import (més cars)</option>
-          <option value="5">Nom</option>
-        </select>
-        <button 
-            className="text-white bg-indigo-500 border-2 border-indigo-500 rounded-md p-1 cursor-pointer"
+        <article className="flex gap-3 md:gap-10">
+          <select name="sort" id="sort" onChange={handleValueChange} value={sortValue} className="text-xs md:text-base">
+            <option value="1">Data (més antics)</option>
+            <option value="2">Data (més recents)</option>
+            <option value="3">Import (més barats)</option>
+            <option value="4">Import (més cars)</option>
+            <option value="5">Nom</option>
+          </select>
+          <button
+            className="text-white bg-indigo-500 border-2 border-indigo-500 rounded-md py-1 px-2 md:px-5 cursor-pointer"
             onClick={() => {setOpen(true)}}>
             Reset
-        </button>
+          </button>
+        </article>
       </nav>
       <ResetModal open={open} setOpen={setOpen} onClose={() => setOpen(false)}></ResetModal>
       {safetyCustomBudgetsDisplay(budgets)
