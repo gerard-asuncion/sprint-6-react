@@ -1,54 +1,35 @@
-# React + TypeScript + Vite
+# 5. Pressupostos (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripció - Enunciat de l'exercici
 
-Currently, two official plugins are available:
+Aquest exercici consisteix a desenvolupar una pàgina que serveixi per a calcular pressupostos, amb la possibilitat d'aplicar descomptes i desar els pressupostos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologies Utilitzades
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- Tailwindcss
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Requisits
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Node.js
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Instal·lació
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Clona aquest repositori: -> git clone https://github.com/gerard-asuncion/sprint-6-react.git
+- Accedeix al directori del projecte: cd sprint-6-react
+- Instal·la les dependències: npm install
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Nota
+
+Els pressupostos es guarden al Local Storage del navegador, és necessari fer un "reset" per tal d'eliminar aquestes dades.
+
+## Contribucions
+
+Les contribucions són benvingudes! Per favor, segueix els següents passos per a contribuir:
+
+Fes un fork del repositori
+Crea una nova branca   git checkout -b feature/NovaFuncionalitat
+Fes els teus canvis i commiteja'ls:   git commit -m 'Afegeix Nova Funcionalitat'
+Puja els canvis a la teva branca:   git push origin feature/NovaFuncionalitat
+Fes un pull request
