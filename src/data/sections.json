@@ -3,12 +3,18 @@
         "id": 1, 
         "section": "SEO",
         "description": "Optimització per a motors de cerca",
-        "price": 300
+        "price": 300,
+        "isWeb": false,
+        "pages": null,
+        "languages": null
     }, {
         "id": 2,
         "section": "Ads",
         "description": "Implementació de publicitat",
-        "price": 400
+        "price": 400,
+        "isWeb": false,
+        "pages": null,
+        "languages": null
     }, {
         "id": 3,
         "section": "Web",

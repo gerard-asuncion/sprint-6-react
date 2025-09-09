@@ -51,7 +51,7 @@ const useSubmit = () => {
             const activeSections: string[] = sections.filter(section => section.isChecked).map(checked => checked.section)
             const webSection: Section = sections.find(section => section.isWeb)!
         
-            const newBudget: Budget = new Budget(name, phone, email, totalPrice, activeSections, webSection.pages, webSection.languages)
+            const newBudget: Budget = new Budget(name, phone, email, totalPrice, activeSections, webSection.pages = 0, webSection.languages = 0)
 
             setBudgets(prevArr => [...prevArr, newBudget])
             

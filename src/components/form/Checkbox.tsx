@@ -4,7 +4,7 @@ import { SectionsContext } from "../../context/sections/SectionsContext"
 import { useContext } from "react"
 import useCheck from "../../hooks/useCheck"
 import usePrice from "../../hooks/usePrice"
-import { styleCheck, expandWeb, showAndHideWebExtras, setModalInfoChildrenClassNames } from "../../utils/utils"
+import { styleCheck, expandWeb, showAndHideWebExtras } from "../../utils/utils"
 
 const Checkbox = ({id}: CheckboxProps) => {
 

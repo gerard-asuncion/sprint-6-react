@@ -50,7 +50,7 @@ const useExtras = (checked: boolean, id: number, type: string) => {
                                                 .reduce((acc: number, cur: number) => acc + cur, 0)
           
             setSections(sections.map((section: Section) => {
-                const original: Section = structuredClone(sectionsJson).find((original: Section) => original.isWeb)!
+                const original: Section = (structuredClone(sectionsJson) as Section[]).find((original: Section) => original.isWeb)!
                 if(section.isWeb && !section.hasDiscount){
                     return {...section, price: original.price}  
                 } else if(section.isWeb && section.hasDiscount){
